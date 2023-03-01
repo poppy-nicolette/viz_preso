@@ -1,2 +1,8 @@
 # viz_preso
-This is for a guest lecture given in Winter 2023
+This is for a guest lecture given in Winter 2023 at Dalhousie University. 
+
+Feel free to use this material, though you should be careful to maintain image sources. 
+
+Anything created in Inkscape is fair use. 
+
+
