@@ -1,5 +1,5 @@
 # viz_preso
-This is for a guest lecture given in Winter 2023 at Dalhousie University. 
+This is for a guest lecture given in Winter 2023 and an updated one in Winter 2024 at Dalhousie University. 
 
 Feel free to use this material, though you should be careful to maintain image sources. 
 
