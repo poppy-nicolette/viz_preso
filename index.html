@@ -1,21 +1,75 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<script src="viz_preso_files/libs/clipboard/clipboard.min.js"></script>
-<script src="viz_preso_files/libs/quarto-html/tabby.min.js"></script>
-<script src="viz_preso_files/libs/quarto-html/popper.min.js"></script>
-<script src="viz_preso_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="viz_preso_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="viz_preso_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="viz_preso_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="viz_preso_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<html lang="en" class="reveal-full-page"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script type="text/javascript">
+    (function() {
+      var container = document.querySelector('#_tcx-2tbq99nm3vg');
+      if (!container) {
+        return;
+      }
+
+      function addToContainer(url, text) {
+        const wrapper = document.createElement('div');
+        wrapper.setAttribute('data-tcx-url', url);
+        wrapper.innerText = text;
+        container.appendChild(wrapper);
+      }
+
+      const fetch = window.fetch
+      window.fetch = function() {
+        return Promise.resolve(fetch.apply(window, arguments))
+            .then(async response => {
+              if (response.ok) {
+                try {
+                  const clone = response.clone();
+                  const json = await clone.json();
+                  addToContainer(clone.url, JSON.stringify(json));
+                } catch (err) {}
+              }
+              return response;
+            });
+      };
+
+      var XHR = XMLHttpRequest.prototype;
+      var send = XHR.send;
+      var open = XHR.open;
+      XHR.open = function(method, url) {
+        this.url = url;
+        return open.apply(this, arguments);
+      };
+      XHR.send = function() {
+        this.addEventListener('load', function() {
+          try {
+            const response = this.response;
+            if (response && response.length) {
+              const firstChar = response[0];
+              if (firstChar === '[' || firstChar === '{') {
+                addToContainer(this.url, response);
+              }
+            }
+          } catch (err) {
+            // No-op.
+          }
+        });
+        return send.apply(this, arguments);
+      };
+    })();
+  </script>
+<script src="index_files/clipboard.min.js"></script>
+<script src="index_files/tabby.min.js"></script>
+<script src="index_files/popper.min.js"></script>
+<script src="index_files/tippy.umd.min.js"></script>
+<link href="index_files/tippy.css" rel="stylesheet">
+<link href="index_files/light-border.css" rel="stylesheet">
+<link href="index_files/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="index_files/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <title>Visualization:</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="viz_preso_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="viz_preso_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="index_files/reset.css">
+  <link rel="stylesheet" href="index_files/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,11 +83,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="viz_preso_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="viz_preso_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="viz_preso_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="viz_preso_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="viz_preso_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="index_files/quarto.css">
+  <link href="index_files/line-highlight.css" rel="stylesheet">
+  <link href="index_files/menu.css" rel="stylesheet">
+  <link href="index_files/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -319,12 +373,132 @@
       margin-right: 0; 
     }
   </style>
-</head>
-<body class="quarto-dark">
-  <div class="reveal">
-    <div class="slides">
+<script type="text/javascript" src="index_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body class="quarto-dark reveal-viewport" style="transition: transform 0.8s; --slide-width: 1050px; --slide-height: 700px; --slide-scale: 1.0697142857142856;"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+  <div class="reveal none focused has-vertical-slides has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="none" data-navigation-mode="linear" style="">
+    <div class="slides" style="width: 1050px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(1.06971);">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" class="quarto-title-block center past" style="top: 238px; display: none;" hidden="" aria-hidden="true">
   <h1 class="title">Visualization:</h1>
   <p class="subtitle">Free and open source options for communicating data</p>
 
@@ -332,10 +506,9 @@
 </div>
 
 </section>
-<section id="what-were-doing-today" class="title-slide slide level1 center">
+<section id="what-were-doing-today" class="title-slide slide level1 center past" style="top: 188px; display: none;" hidden="" aria-hidden="true">
 <h1>What we’re doing today</h1>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="columns"><div class="column" style="width:50%;">
 <p>Data visualization &amp; infographics</p>
 <p>Examples of both</p>
 </div><div class="column" style="width:50%;">
@@ -344,21 +517,21 @@
 </div></div>
 </section>
 
-<section>
-<section id="about-me" class="title-slide slide level1 center">
+<section class="stack past" style="display: block;" data-previous-indexv="1" hidden="" aria-hidden="true">
+<section id="about-me" class="title-slide slide level1 center past" style="top: 286px; display: none;" hidden="" aria-hidden="true">
 <h1>About me</h1>
 
 </section>
-<section id="poppy-riddle" class="slide level2 scrollable">
+<section id="poppy-riddle" class="slide level2 scrollable" style="display: block;" aria-hidden="true">
 <h2>Poppy Riddle</h2>
-<p><img data-src="images/cc_dc_nodes_labels_bubbles.png" class="quarto-figure quarto-figure-center"> <br> I’m a scholarly communications researcher &amp; PhD candidate</p>
+<p><img class="quarto-figure quarto-figure-center" src="index_files/cc_dc_nodes_labels_bubbles.png" data-lazy-loaded=""> <br> I’m a scholarly communications researcher &amp; PhD candidate</p>
 <p>I research how we can improve search tools for scientific publications.</p>
 <p>I have an art and design education background.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://scholcommlab.shinyapps.io/APCs_Published-v1/"><img data-src="images/APC_dash.png" class="quarto-figure quarto-figure-center" alt="APC Dashboard for UOttawa"></a></p>
+<p><a href="https://scholcommlab.shinyapps.io/APCs_Published-v1/"><img class="quarto-figure quarto-figure-center" alt="APC Dashboard for UOttawa" src="index_files/APC_dash.png" data-lazy-loaded=""></a></p>
 </figure>
 </div>
 <figcaption>APC Dashboard for UOttawa</figcaption>
@@ -366,17 +539,17 @@
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/dual_keyword.png"></p>
+<p><img src="index_files/dual_keyword.png" data-lazy-loaded=""></p>
 <figcaption>Dual Keyword Search visualization</figcaption>
 </figure>
 </div>
 </section></section>
-<section>
-<section id="visualization-beyond-excel" class="title-slide slide level1 center">
+<section class="stack past" style="display: block;" data-previous-indexv="30" hidden="" aria-hidden="true">
+<section id="visualization-beyond-excel" class="title-slide slide level1 center past" style="top: 226px; display: none;" hidden="" aria-hidden="true">
 <h1>Visualization beyond Excel</h1>
 
 </section>
-<section id="whats-wrong-with-excel" class="slide level2 scrollable">
+<section id="whats-wrong-with-excel" class="slide level2 scrollable past" style="display: none;" hidden="" aria-hidden="true">
 <h2>What’s wrong with Excel?</h2>
 <p>Both Excel and Tableau are great for exploration and presentation of data.</p>
 <p>Its very recognizable.</p>
@@ -384,36 +557,35 @@
 <p>OtherLevels: <a href="https://www.youtube.com/@OtherLevels">https://www.youtube.com/@OtherLevels</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/nexl_level.png"></p>
+<p><img src="index_files/nexl_level.png" data-lazy-loaded=""></p>
 <figcaption>source: https://www.other-levels.com/blogs/datasets</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/cioffi_colour.png"></p>
+<p><img src="index_files/cioffi_colour.png" data-lazy-loaded=""></p>
 <figcaption>source: from Cioffi et al.&nbsp;2022 DOI:10.1007/s11192-022-4367-w</figcaption>
 </figure>
 </div>
 <p>But, its not uncommon to see it in greyscale:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/cioffi_greyscale.png"></p>
+<p><img src="index_files/cioffi_greyscale.png" data-lazy-loaded=""></p>
 <figcaption>same as above, but greyscale due to printing!</figcaption>
 </figure>
 </div>
 <p>So, how can we make this a little more enticing?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/constantino_colour.png"></p>
+<p><img src="index_files/constantino_colour.png" data-lazy-loaded=""></p>
 <figcaption>Source: Constantino et al., 2024. DOI:10.1162/qss_a_00349</figcaption>
 </figure>
 </div>
 </section>
-<section id="data-visualization" class="slide level2">
+<section id="data-visualization" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Data visualization</h2>
 <p>Visualization is the practice of making results from data analysis more easily interpreted by visual or other means.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="columns"><div class="column" style="width:50%;">
 <pre><code>-   data visualization
 
 -   information visualization
@@ -429,54 +601,53 @@
 <p><br></p>
 <p>See Nathan Yao’s Flowing Data catalog of chart types. <a href="https://flowingdata.com/chart-types/" class="uri">https://flowingdata.com/chart-types/</a></p>
 </section>
-<section id="section" class="slide level2">
+<section id="section" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/data_viz.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-1" class="slide level2">
+<img class="quarto-figure quarto-figure-center r-stretch" style="height: 700px; width: 726.613px;" src="index_files/data_viz.png" data-lazy-loaded=""></section>
+<section id="section-1" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/data_viz_budget.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="infographics" class="slide level2">
+<img class="quarto-figure quarto-figure-center r-stretch" style="height: 700px; width: 859.396px;" src="index_files/data_viz_budget.png" data-lazy-loaded=""></section>
+<section id="infographics" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Infographics</h2>
 <p>Infographics are intended to communicate a cohesive narrative that may include tables, graphs, diagrams, maps, etc.</p>
 <p>They can be quite artistic to gain your attention.</p>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-2" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/infographics.jpg" class="r-stretch quarto-figure-center"><p class="caption">source: www.hotbutterstudio.com</p></section>
-<section id="section-3" class="slide level2">
+<img class="r-stretch quarto-figure-center" style="height: 700px; width: 708.984px;" src="index_files/infographics.jpg" data-lazy-loaded=""><p class="caption">source: www.hotbutterstudio.com</p></section>
+<section id="section-3" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/infographics2.png" class="r-stretch quarto-figure-center"><p class="caption">source: www.hotbutterstudio.com</p></section>
-<section id="section-4" class="slide level2">
+<img class="r-stretch quarto-figure-center" style="height: 700px; width: 315.65px;" src="index_files/infographics2.png" data-lazy-loaded=""><p class="caption">source: www.hotbutterstudio.com</p></section>
+<section id="section-4" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/valentina_dfillippo.jpg" class="r-stretch quarto-figure-center"><p class="caption">source: https://www.valentinadefilippo.co.uk/</p></section>
-<section id="section-5" class="slide level2">
+<img class="r-stretch quarto-figure-center" style="height: 700px; width: 1038.58px;" src="index_files/valentina_dfillippo.jpg" data-lazy-loaded=""><p class="caption">source: https://www.valentinadefilippo.co.uk/</p></section>
+<section id="section-5" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/nicholas_wu.png" class="r-stretch quarto-figure-center"><p class="caption">source: https://wunicholas.wixsite.com/</p></section>
-<section id="section-6" class="slide level2">
+<img class="r-stretch quarto-figure-center" style="height: 591.652px; width: 1050px;" src="index_files/nicholas_wu.png" data-lazy-loaded=""><p class="caption">source: https://wunicholas.wixsite.com/</p></section>
+<section id="section-6" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-m2vp4dzq"><img data-src="images/nicholas_wu_batys.png" alt="source:https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-m2vp4dzq"></a></p>
+<p><a href="https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-m2vp4dzq"><img alt="source:https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-m2vp4dzq" src="index_files/nicholas_wu_batys.png" data-lazy-loaded=""></a></p>
 <figcaption>source:https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-m2vp4dzq</figcaption>
 </figure>
 </div>
 </section>
-<section id="how-might-graphic-design-principles-help" class="slide level2">
+<section id="how-might-graphic-design-principles-help" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>How might graphic design principles help?</h2>
 <p>Limited attention: you have <span style="color:orange">seconds</span> to get and keep someone’s attention.</p>
 <p>Limited memory: working and long-term memory</p>
 <p>Limited perceptual channels</p>
 </section>
-<section id="some-of-the-elements-of-graphic-design" class="slide level2">
+<section id="some-of-the-elements-of-graphic-design" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Some of the elements of graphic design</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="columns"><div class="column" style="width:50%;">
 <p>Hierarchy</p>
 <p>Scale</p>
 <p>Color</p>
@@ -488,7 +659,7 @@
 <p>Contrast</p>
 </div></div>
 </section>
-<section id="hierarchy" class="slide level2 scrollable">
+<section id="hierarchy" class="slide level2 scrollable past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Hierarchy</h2>
 <h1 style="font-size:10vw">
 <p>Read this first.</p>
@@ -500,45 +671,43 @@
 <p>Read this third.</p>
 </h3>
 </section>
-<section id="section-7" class="slide level2">
+<section id="section-7" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/frogposterWu.jpg" class="r-stretch quarto-figure-center"><p class="caption">source:https://wunicholas.wixsite.com</p></section>
-<section id="section-8" class="slide level2">
+<img class="r-stretch quarto-figure-center" style="height: 700px; width: 494.922px;" src="index_files/frogposterWu.jpg" data-lazy-loaded=""><p class="caption">source:https://wunicholas.wixsite.com</p></section>
+<section id="section-8" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/frogposterWu%20hierarchy.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="scale" class="slide level2 scrollable">
+<img class="quarto-figure quarto-figure-center r-stretch" style="height: 700px; width: 495.605px;" src="index_files/frogposterWu%20hierarchy.png" data-lazy-loaded=""></section>
+<section id="scale" class="slide level2 scrollable past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Scale</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
+<div class="columns"><div class="column" style="width:60%;">
 <p>Scale affects how big or small your visualization can still be legible.</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/scale_logo.png" class="quarto-figure quarto-figure-center"></p>
+<p><img class="quarto-figure quarto-figure-center" src="index_files/scale_logo.png" data-lazy-loaded=""></p>
 </figure>
 </div>
 </div></div>
 <p>Or…</p>
-<div class="columns">
-<div class="column" style="width:60%;">
+<div class="columns"><div class="column" style="width:60%;">
 <p>You may need to move things around a bit.</p>
 </div><div class="column" style="width:40%;">
-<p><img data-src="images/BIGGIE_AND_LITTLE_ONE.png"></p>
+<p><img src="index_files/BIGGIE_AND_LITTLE_ONE.png" data-lazy-loaded=""></p>
 </div></div>
 </section>
-<section id="section-9" class="slide level2">
+<section id="section-9" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/scale%204.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="color" class="slide level2 scrollable">
+<img class="quarto-figure quarto-figure-center r-stretch" style="height: 700px; width: 1047.18px;" src="index_files/scale%204.png" data-lazy-loaded=""></section>
+<section id="color" class="slide level2 scrollable past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Color</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://www.flickr.com/photos/blmoregon/16335492972"><img data-src="images/coho_colour.png" class="quarto-figure quarto-figure-center" alt="Color swatches taken from a public domain image."></a></p>
+<p><a href="https://www.flickr.com/photos/blmoregon/16335492972"><img class="quarto-figure quarto-figure-center" alt="Color swatches taken from a public domain image." src="index_files/coho_colour.png" data-lazy-loaded=""></a></p>
 </figure>
 </div>
 <figcaption>Color swatches taken from a public domain image.</figcaption>
@@ -546,121 +715,115 @@
 </div>
 <p>Here are some resources:</p>
 <p>For scientific publications: <a href="http://vrl.cs.brown.edu/color" class="uri">http://vrl.cs.brown.edu/color</a></p>
-<p><a href="http://vrl.cs.brown.edu/color"><img data-src="images/cologorical.png" width="200"></a></p>
+<p><a href="http://vrl.cs.brown.edu/color"><img width="200" src="index_files/cologorical.png" data-lazy-loaded=""></a></p>
 <p>Super easy and beautiful color palettes: <a href="https://color.adobe.com/create/color-wheel" class="uri">https://color.adobe.com/create/color-wheel</a></p>
-<p><a href="https://color.adobe.com/create/color-wheel"><img data-src="images/adobe.png" width="250"></a></p>
+<p><a href="https://color.adobe.com/create/color-wheel"><img width="250" src="index_files/adobe.png" data-lazy-loaded=""></a></p>
 <p>So many more: <a href="https://sites.google.com/view/visres/special-topic-color/noteworthy-and-popular-color-resources?authuser=0" class="uri">https://sites.google.com/view/visres/special-topic-color/noteworthy-and-popular-color-resources?authuser=0</a></p>
 </section>
-<section id="line" class="slide level2 scrollable">
+<section id="line" class="slide level2 scrollable past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Line</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
+<div class="columns"><div class="column" style="width:60%;">
 <p>Line weight helps to separate and define.</p>
 <p>How does this look big? Or small?</p>
 <p>Is it near or far?</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/line.png" class="quarto-figure quarto-figure-center"></p>
+<p><img class="quarto-figure quarto-figure-center" src="index_files/line.png" data-lazy-loaded=""></p>
 </figure>
 </div>
 </div></div>
 </section>
-<section id="section-10" class="slide level2 scrollable">
+<section id="section-10" class="slide level2 scrollable past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/wu_line_weight.png"></p>
+<p><img src="index_files/wu_line_weight.png" data-lazy-loaded=""></p>
 <figcaption>Source: https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-jdpq7tt0<br>
 </figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-l1a5xzhb"><img data-src="images/wu_graphic_abstract.png" alt="source:https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-l1a5xzhb"></a></p>
+<p><a href="https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-l1a5xzhb"><img alt="source:https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-l1a5xzhb" src="index_files/wu_graphic_abstract.png" data-lazy-loaded=""></a></p>
 <figcaption>source:https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-l1a5xzhb</figcaption>
 </figure>
 </div>
 <p>So, you might adjust depending on your needs:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/biggie_Lorem.png"></p>
+<p><img src="index_files/biggie_Lorem.png" data-lazy-loaded=""></p>
 <figcaption>Biggie and some lorem ipsum text.</figcaption>
 </figure>
 </div>
 </section>
-<section id="shape" class="slide level2">
+<section id="shape" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Shape</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
+<div class="columns"><div class="column" style="width:60%;">
 <p>What do these shapes mean?</p>
 <p>How might they be interpreted in the context of the narrative?</p>
 <p>See Ferdio’s 100 visualizations with just 6 data points. <a href="https://100.datavizproject.com/#" class="uri">https://100.datavizproject.com/#</a></p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/g11434.png" class="quarto-figure quarto-figure-center"></p>
+<p><img class="quarto-figure quarto-figure-center" src="index_files/g11434.png" data-lazy-loaded=""></p>
 </figure>
 </div>
 </div></div>
 </section>
-<section id="section-11" class="slide level2">
+<section id="section-11" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/ferdio.png" class="r-stretch quarto-figure-center"><p class="caption">source: <a href="https://100.datavizproject.com/#" class="uri">https://100.datavizproject.com/#</a></p></section>
-<section id="alignment" class="slide level2">
+<img class="r-stretch quarto-figure-center" style="height: 521.693px; width: 1050px;" src="index_files/ferdio.png" data-lazy-loaded=""><p class="caption">source: <a href="https://100.datavizproject.com/#" class="uri">https://100.datavizproject.com/#</a></p></section>
+<section id="alignment" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Alignment</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
+<div class="columns"><div class="column" style="width:60%;">
 <p>Alignment helps your reader orient themselves and predict where information will be.</p>
 <p>The grid has a dedicated following.</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/alignment.png" class="quarto-figure quarto-figure-center" width="400"></p>
+<p><img class="quarto-figure quarto-figure-center" width="400" src="index_files/alignment.png" data-lazy-loaded=""></p>
 </figure>
 </div>
 </div></div>
 </section>
-<section id="section-12" class="slide level2">
+<section id="section-12" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/grid_1.png" class="r-stretch quarto-figure-center"><p class="caption">The grid on Nicolas Wu’s fish poster.</p></section>
-<section id="section-13" class="slide level2">
+<img class="r-stretch quarto-figure-center" style="height: 600.264px; width: 1050px;" src="index_files/grid_1.png" data-lazy-loaded=""><p class="caption">The grid on Nicolas Wu’s fish poster.</p></section>
+<section id="section-13" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
 
-<img data-src="images/justagrid.png" class="r-stretch quarto-figure-center"><p class="caption">Just a grid.</p></section>
-<section id="space" class="slide level2">
+<img class="r-stretch quarto-figure-center" style="height: 593.519px; width: 1050px;" src="index_files/justagrid.png" data-lazy-loaded=""><p class="caption">Just a grid.</p></section>
+<section id="space" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Space</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
+<div class="columns"><div class="column" style="width:60%;">
 <p>This is the resting space around text and visuals. It gives the eye time to rest and move between salient points.</p>
 <p>Also called negative space, or ground.</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/space.png" class="quarto-figure quarto-figure-center"></p>
+<p><img class="quarto-figure quarto-figure-center" src="index_files/space.png" data-lazy-loaded=""></p>
 </figure>
 </div>
 </div></div>
 </section>
-<section id="section-14" class="slide level2">
+<section id="section-14" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="columns"><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/valentina_dfillippo.jpg" class="quarto-figure quarto-figure-center"></p>
+<p><img class="quarto-figure quarto-figure-center" src="index_files/valentina_dfillippo.jpg" data-lazy-loaded=""></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
-<p><img data-src="images/nexl_level.png"></p>
+<p><img src="index_files/nexl_level.png" data-lazy-loaded=""></p>
 </div></div>
 </section>
-<section id="contrast" class="slide level2">
+<section id="contrast" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Contrast</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
+<div class="columns"><div class="column" style="width:60%;">
 <p>This affects:</p>
 <p>hierarchy</p>
 <p>color</p>
@@ -670,16 +833,16 @@
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/contrast_type.png" class="quarto-figure quarto-figure-center"></p>
+<p><img class="quarto-figure quarto-figure-center" src="index_files/contrast_type.png" data-lazy-loaded=""></p>
 </figure>
 </div>
 </div></div>
 </section>
-<section id="section-15" class="slide level2 scrollable">
+<section id="section-15" class="slide level2 scrollable past" style="display: block;" hidden="" aria-hidden="true">
 <h2></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/Lorem_octo_low_contrast.png"></p>
+<p><img src="index_files/Lorem_octo_low_contrast.png" data-lazy-loaded=""></p>
 <figcaption>Lorum Ipsum and the Octopus in low contrast (source:https://sciencefigures.org/figure/1165/octopus/)</figcaption>
 </figure>
 </div>
@@ -688,17 +851,16 @@
 <figure>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://sciencefigures.org/figure/1165/octopus/"><img data-src="images/Lorem_octo_high_contrast.png" class="quarto-figure quarto-figure-center" alt="High contrast! Source: https://sciencefigures.org/figure/1165/octopus/"></a></p>
+<p><a href="https://sciencefigures.org/figure/1165/octopus/"><img class="quarto-figure quarto-figure-center" alt="High contrast! Source: https://sciencefigures.org/figure/1165/octopus/" src="index_files/Lorem_octo_high_contrast.png" data-lazy-loaded=""></a></p>
 </figure>
 </div>
 <figcaption>High contrast! Source: https://sciencefigures.org/figure/1165/octopus/</figcaption>
 </figure>
 </div>
 </section>
-<section id="elements-of-graphic-design" class="slide level2">
+<section id="elements-of-graphic-design" class="slide level2" style="display: block;" aria-hidden="true">
 <h2>8 Elements of graphic design</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="columns"><div class="column" style="width:50%;">
 <p>Hierarchy</p>
 <p>Scale</p>
 <p>Color</p>
@@ -710,12 +872,12 @@
 <p>Contrast</p>
 </div></div>
 </section></section>
-<section>
-<section id="resources" class="title-slide slide level1 center">
+<section class="stack present" style="display: block;" data-previous-indexv="7">
+<section id="resources" class="title-slide slide level1 center past" style="top: 286px; display: none;" hidden="" aria-hidden="true">
 <h1>Resources</h1>
 
 </section>
-<section id="open-source-or-free-tools" class="slide level2">
+<section id="open-source-or-free-tools" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Open source or free tools</h2>
 <p>Survey from the Journal of Visualization: <a href="https://sites.google.com/view/visres/home?authuser=0" class="uri">https://sites.google.com/view/visres/home?authuser=0</a></p>
 <p>DataWrapper: <a href="https://www.datawrapper.de/charts" class="uri">https://www.datawrapper.de/charts</a></p>
@@ -724,12 +886,12 @@
 <p>Draw.io: <a href="https://app.diagrams.net/" class="uri">https://app.diagrams.net/</a></p>
 <p>inkscape: <a href="https://inkscape.org/" class="uri">https://inkscape.org/</a></p>
 </section>
-<section id="visualization-galleries" class="slide level2">
+<section id="visualization-galleries" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Visualization galleries</h2>
 <p>A catalog of data visualization types: <a href="https://datavizcatalogue.com/" class="uri">https://datavizcatalogue.com/</a></p>
 <p>Information is beautiful: <a href="https://informationisbeautiful.net/" class="uri">https://informationisbeautiful.net/</a></p>
 </section>
-<section id="visualization-blogs" class="slide level2">
+<section id="visualization-blogs" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Visualization blogs</h2>
 <p>Data Visualization Society: h<a href="https://www.datavisualizationsociety.org/">ttps://www.datavisualizationsociety.org/</a></p>
 <p>&amp; their youtube channel: <a href="https://www.youtube.com/@DataVisualizationSociety">https://www.youtube.com/@DataVisualizationSociety</a></p>
@@ -737,62 +899,71 @@
 <p>Visualization Universe: <a href="http://visualizationuniverse.com/" class="uri">http://visualizationuniverse.com/</a></p>
 <p>Visualizing Data: <a href="https://www.visualisingdata.com/blog/" class="uri">https://www.visualisingdata.com/blog/</a></p>
 </section>
-<section id="fonts" class="slide level2">
+<section id="fonts" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Fonts</h2>
 <p>Fonts: <a href="https://fonts.google.com/" class="uri">https://fonts.google.com/</a></p>
 <p>Icons: <a href="https://fontawesome.com/icons" class="uri">https://fontawesome.com/icons</a></p>
 <p>Lorum Ipsum: <a href="https://loremipsum.io/" class="uri">https://loremipsum.io/</a></p>
 </section>
-<section id="color-1" class="slide level2">
+<section id="color-1" class="slide level2 past" style="display: none;" hidden="" aria-hidden="true">
 <h2>Color</h2>
 <p>Adobe Color: <a href="https://color.adobe.com/create/color-wheel" class="uri">https://color.adobe.com/create/color-wheel</a></p>
 <p>I Want Hue: <a href="https://medialab.github.io/iwanthue/" class="uri">https://medialab.github.io/iwanthue/</a></p>
 </section>
-<section id="science-related-resources" class="slide level2">
+<section id="science-related-resources" class="slide level2 past" style="display: block;" hidden="" aria-hidden="true">
 <h2>Science related resources</h2>
 <p>BioRender: <a href="https://www.biorender.com/features" class="uri">https://www.biorender.com/features</a> <br></p>
 <p>Guild of Natural Science Illustrators: <a href="https://www.gnsi.org/" class="uri">https://www.gnsi.org/</a> <br></p>
 <p>Scientific American article: <a href="https://blogs.scientificamerican.com/sa-visual/visualizing-science-illustration-and-beyond/" class="uri">https://blogs.scientificamerican.com/sa-visual/visualizing-science-illustration-and-beyond/</a><br></p>
 <p>Science Figures: open-licensed science related artwork: <a href="https://sciencefigures.org/" class="uri">https://sciencefigures.org/</a></p>
 </section>
-<section id="advancing-even-further" class="slide level2">
+<section id="advancing-even-further" class="slide level2 past" style="display: block;" hidden="" aria-hidden="true">
 <h2>Advancing even further!</h2>
 <p>D3: <a href="https://d3-graph-gallery.com/" class="uri">https://d3-graph-gallery.com/</a><br></p>
 <p>Observable: <a href="https://observablehq.com/" class="uri">https://observablehq.com/</a></p>
 <p>Mermaid:<a href="https://mermaidchart.com/" class="uri">https://mermaidchart.com/</a></p>
 </section>
-<section id="thank-you" class="slide level2">
+<section id="thank-you" class="slide level2 present" style="display: block;">
 <h2>Thank you!</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
+<div class="columns"><div class="column" style="width:60%;">
 <p>Feel free to reach out with any questions, comments, or other sources of inspiration!</p>
 </div><div class="column" style="width:40%;">
 <p>Poppy Riddle</p>
 <p>pnriddle@dal.ca<br> <br> You can find this presentation at <a href="https://github.com/poppy-nicolette/viz_preso" class="uri">https://github.com/poppy-nicolette/viz_preso</a></p>
 </div></div>
 <div class="quarto-auto-generated-content">
-<div class="footer footer-default">
 
-</div>
 </div>
 </section></section>
     </div>
-  </div>
+  <div class="slide-menu-button"><a href="#"><i class="fas fa-bars"></i></a></div><div class="footer footer-default" style="display: block;">
+
+</div><div class="backgrounds"><div class="slide-background quarto-title-block center past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background title-slide slide level1 center past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background stack past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background title-slide slide level1 center past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 scrollable present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div></div><div class="slide-background stack past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background title-slide slide level1 center past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 scrollable past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 scrollable past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 scrollable past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 scrollable past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 scrollable past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 scrollable past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 scrollable past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div></div><div class="slide-background stack present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div><div class="slide-background title-slide slide level1 center past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background slide level2 present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div></div></div><div class="slide-number" style="display: block;"><a href="#/thank-you">
+					<span class="slide-number-a">44</span>
+					<span class="slide-number-delimiter">/</span>
+					<span class="slide-number-b">44</span>
+					</a></div><aside class="controls" style="display: none;" data-controls-layout="edges" data-controls-back-arrows="faded"><button class="navigate-left enabled" aria-label="previous slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-right" aria-label="next slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-up enabled" aria-label="above slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(1);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);" class="aria-status" aria-live="polite" aria-atomic="true">Thank
+ you! Feel free to reach out with any questions, comments, or other 
+sources of inspiration! Poppy Riddle pnriddle@dal.ca You can find this 
+presentation at https://github.com/poppy-nicolette/viz_preso </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="viz_preso_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="index_files/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="viz_preso_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="viz_preso_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="viz_preso_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="viz_preso_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="viz_preso_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="index_files/line-highlight.js"></script>
+  <script src="index_files/pdfexport.js"></script>
+  <script src="index_files/menu.js"></script>
+  <script src="index_files/quarto-menu.js"></script>
+  <script src="index_files/support.js"></script>
   
 
-  <script src="viz_preso_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="viz_preso_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="viz_preso_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="viz_preso_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="index_files/notes.js"></script>
+  <script src="index_files/search.js"></script>
+  <script src="index_files/zoom.js"></script>
+  <script src="index_files/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -985,7 +1156,13 @@
           RevealZoom
         ]
       });
-    </script>
+    </script><div class="slide-menu-wrapper"><nav class="slide-menu slide-menu--left" style="font-family: Source Sans Pro, Helvetica, sans-serif;"><ol class="slide-menu-toolbar"><li data-button="0" class="toolbar-panel-button active-toolbar-button" data-panel="Slides"><i class="fas fa-images"></i><br><span class="slide-menu-toolbar-label">Slides</span></li><li data-button="1" class="toolbar-panel-button" data-panel="Custom0"><i class="fas fa-gear"></i><br><span class="slide-menu-toolbar-label">Tools</span></li><li id="close" class="toolbar-panel-button"><i class="fas fa-times"></i><br><span class="slide-menu-toolbar-label">Close</span></li></ol><div data-panel="Slides" class="slide-menu-panel active-menu-panel"><ul class="slide-menu-items"><li class="slide-menu-item past" data-item="0" data-slide-h="0" data-slide-v="0"><span class="slide-menu-item-title">Visualization:</span></li><li class="slide-menu-item past" data-item="1" data-slide-h="1" data-slide-v="0"><span class="slide-menu-item-title">What we’re doing today</span></li><li class="slide-menu-item past" data-item="2" data-slide-h="2" data-slide-v="0"><span class="slide-menu-item-title">About me</span></li><li class="slide-menu-item-vertical past" data-item="3" data-slide-h="2" data-slide-v="1"><span class="slide-menu-item-title">Poppy Riddle</span></li><li class="slide-menu-item past" data-item="4" data-slide-h="3" data-slide-v="0"><span class="slide-menu-item-title">Visualization beyond Excel</span></li><li class="slide-menu-item-vertical past" data-item="5" data-slide-h="3" data-slide-v="1"><span class="slide-menu-item-title">What’s wrong with Excel?</span></li><li class="slide-menu-item-vertical past" data-item="6" data-slide-h="3" data-slide-v="2"><span class="slide-menu-item-title">Data visualization</span></li><li class="slide-menu-item-vertical no-title past" data-item="7" data-slide-h="3" data-slide-v="3"><span class="slide-menu-item-title">Slide 8</span></li><li class="slide-menu-item-vertical no-title past" data-item="8" data-slide-h="3" data-slide-v="4"><span class="slide-menu-item-title">Slide 9</span></li><li class="slide-menu-item-vertical past" data-item="9" data-slide-h="3" data-slide-v="5"><span class="slide-menu-item-title">Infographics</span></li><li class="slide-menu-item-vertical past" data-item="10" data-slide-h="3" data-slide-v="6"><span class="slide-menu-item-title">source: www.hotbutterstudio.com...</span></li><li class="slide-menu-item-vertical past" data-item="11" data-slide-h="3" data-slide-v="7"><span class="slide-menu-item-title">source: www.hotbutterstudio.com...</span></li><li class="slide-menu-item-vertical past" data-item="12" data-slide-h="3" data-slide-v="8"><span class="slide-menu-item-title">source: https://www.valentinadefilippo.co.uk/...</span></li><li class="slide-menu-item-vertical past" data-item="13" data-slide-h="3" data-slide-v="9"><span class="slide-menu-item-title">source: https://wunicholas.wixsite.com/...</span></li><li class="slide-menu-item-vertical past" data-item="14" data-slide-h="3" data-slide-v="10"><span class="slide-menu-item-title">source:https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-m2vp4dzq...</span></li><li class="slide-menu-item-vertical past" data-item="15" data-slide-h="3" data-slide-v="11"><span class="slide-menu-item-title">How might graphic design principles help?</span></li><li class="slide-menu-item-vertical past" data-item="16" data-slide-h="3" data-slide-v="12"><span class="slide-menu-item-title">Some of the elements of graphic design</span></li><li class="slide-menu-item-vertical past" data-item="17" data-slide-h="3" data-slide-v="13"><span class="slide-menu-item-title">Hierarchy</span></li><li class="slide-menu-item-vertical past" data-item="18" data-slide-h="3" data-slide-v="14"><span class="slide-menu-item-title">source:https://wunicholas.wixsite.com...</span></li><li class="slide-menu-item-vertical no-title past" data-item="19" data-slide-h="3" data-slide-v="15"><span class="slide-menu-item-title">Slide 20</span></li><li class="slide-menu-item-vertical past" data-item="20" data-slide-h="3" data-slide-v="16"><span class="slide-menu-item-title">Scale</span></li><li class="slide-menu-item-vertical no-title past" data-item="21" data-slide-h="3" data-slide-v="17"><span class="slide-menu-item-title">Slide 22</span></li><li class="slide-menu-item-vertical past" data-item="22" data-slide-h="3" data-slide-v="18"><span class="slide-menu-item-title">Color</span></li><li class="slide-menu-item-vertical past" data-item="23" data-slide-h="3" data-slide-v="19"><span class="slide-menu-item-title">Line</span></li><li class="slide-menu-item-vertical past" data-item="24" data-slide-h="3" data-slide-v="20"><span class="slide-menu-item-title">Source: https://wunicholas.wixsite.com/home/portfolio?lightbox=dataItem-jdpq7tt0...</span></li><li class="slide-menu-item-vertical past" data-item="25" data-slide-h="3" data-slide-v="21"><span class="slide-menu-item-title">Shape</span></li><li class="slide-menu-item-vertical past" data-item="26" data-slide-h="3" data-slide-v="22"><span class="slide-menu-item-title">source: https://100.datavizproject.com/#...</span></li><li class="slide-menu-item-vertical past" data-item="27" data-slide-h="3" data-slide-v="23"><span class="slide-menu-item-title">Alignment</span></li><li class="slide-menu-item-vertical past" data-item="28" data-slide-h="3" data-slide-v="24"><span class="slide-menu-item-title">The grid on Nicolas...</span></li><li class="slide-menu-item-vertical past" data-item="29" data-slide-h="3" data-slide-v="25"><span class="slide-menu-item-title">Just a grid....</span></li><li class="slide-menu-item-vertical past" data-item="30" data-slide-h="3" data-slide-v="26"><span class="slide-menu-item-title">Space</span></li><li class="slide-menu-item-vertical no-title past" data-item="31" data-slide-h="3" data-slide-v="27"><span class="slide-menu-item-title">Slide 32</span></li><li class="slide-menu-item-vertical past" data-item="32" data-slide-h="3" data-slide-v="28"><span class="slide-menu-item-title">Contrast</span></li><li class="slide-menu-item-vertical past" data-item="33" data-slide-h="3" data-slide-v="29"><span class="slide-menu-item-title">Lorum Ipsum and the...</span></li><li class="slide-menu-item-vertical past" data-item="34" data-slide-h="3" data-slide-v="30"><span class="slide-menu-item-title">8 Elements of graphic design</span></li><li class="slide-menu-item past" data-item="35" data-slide-h="4" data-slide-v="0"><span class="slide-menu-item-title">Resources</span></li><li class="slide-menu-item-vertical past" data-item="36" data-slide-h="4" data-slide-v="1"><span class="slide-menu-item-title">Open source or free tools</span></li><li class="slide-menu-item-vertical past" data-item="37" data-slide-h="4" data-slide-v="2"><span class="slide-menu-item-title">Visualization galleries</span></li><li class="slide-menu-item-vertical past" data-item="38" data-slide-h="4" data-slide-v="3"><span class="slide-menu-item-title">Visualization blogs</span></li><li class="slide-menu-item-vertical past" data-item="39" data-slide-h="4" data-slide-v="4"><span class="slide-menu-item-title">Fonts</span></li><li class="slide-menu-item-vertical past" data-item="40" data-slide-h="4" data-slide-v="5"><span class="slide-menu-item-title">Color</span></li><li class="slide-menu-item-vertical past" data-item="41" data-slide-h="4" data-slide-v="6"><span class="slide-menu-item-title">Science related resources</span></li><li class="slide-menu-item-vertical past" data-item="42" data-slide-h="4" data-slide-v="7"><span class="slide-menu-item-title">Advancing even further!</span></li><li class="slide-menu-item-vertical active" data-item="43" data-slide-h="4" data-slide-v="8"><span class="slide-menu-item-title">Thank you!</span></li></ul></div><div data-panel="Custom0" class="slide-menu-panel slide-menu-custom-panel"><ul class="slide-menu-items">
+<li class="slide-tool-item active" data-item="0"><a href="#" onclick="RevealMenuToolHandlers.fullscreen(event)"><kbd>f</kbd> Fullscreen</a></li>
+<li class="slide-tool-item" data-item="1"><a href="#" onclick="RevealMenuToolHandlers.speakerMode(event)"><kbd>s</kbd> Speaker View</a></li>
+<li class="slide-tool-item" data-item="2"><a href="#" onclick="RevealMenuToolHandlers.overview(event)"><kbd>o</kbd> Slide Overview</a></li>
+<li class="slide-tool-item" data-item="3"><a href="#" onclick="RevealMenuToolHandlers.togglePdfExport(event)"><kbd>e</kbd> PDF Export Mode</a></li>
+<li class="slide-tool-item" data-item="4"><a href="#" onclick="RevealMenuToolHandlers.keyboardHelp(event)"><kbd>?</kbd> Keyboard Help</a></li>
+</ul></div></nav><div class="slide-menu-overlay"></div></div>
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -1175,4 +1352,4 @@
     </script>
     
 
-</body></html>
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: STIXSizeOneSym, sans-serif;"></div></div></body></html>
