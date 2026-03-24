@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="1024"
+   height="576"
+   viewBox="0 0 1024 576"
+   sodipodi:docname="coho.jpg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true">
+    <sodipodi:guide
+       position="305.21738,653.92784"
+       orientation="1,0"
+       id="guide1"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="536.40331,525.3469"
+       orientation="1,0"
+       id="guide2"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g1">
+    <path
+       style="display:inline;fill:none;fill-opacity:1;stroke:#663054;stroke-width:8.10052;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       d="m 280.77995,253.23598 c -29.19397,7.57489 -2.04578,43.02584 15.52314,49.6324 27.69788,20.93954 58.17106,39.43219 92.99582,45.16879 63.59506,15.38872 128.13581,26.72571 193.33581,32.45806 34.00991,4.20625 68.12483,7.38739 102.22711,10.72277 -20.41376,-13.78658 19.18071,8.45712 25.92493,9.92885 25.08771,19.12376 26.21323,-21.90274 40.06875,-30.66206 17.77621,10.97393 29.36853,30.28484 46.9692,42.24821 14.40038,13.32568 42.76908,29.1126 58.20153,19.53668 -16.4182,-17.90942 -34.12088,-42.66845 -24.80458,-68.51197 0.80488,-16.22406 29.67162,-41.90664 -3.09907,-39.31972 -19.98684,-4.36362 -40.92474,8.0081 -59.6777,3.2458 -16.92124,-3.19515 -8.2931,-21.07844 -21.48785,-26.93551 -22.05723,6.8285 -37.92727,-11.77431 -59.21908,-17.66976 -17.79893,-6.57276 -35.85158,-13.2046 -27.31611,-34.63535 -19.20884,-10.56317 -45.99953,-18.03823 -67.97853,-11.38183 -46.4884,-9.18593 -92.9246,-22.79318 -140.79223,-19.95736 -55.10334,-0.11715 -110.53874,-3.19491 -165.40752,2.95257 -17.17392,6.91124 -47.573,14.57502 -44.44433,38.02676 6.25548,24.01954 28.2664,10.86442 31.89252,-7.04178 21.76494,-12.89713 35.25675,21.68315 52.68341,29.89696 10.58165,10.94797 -28.02254,-2.64506 -33.51818,-11.47411 -6.57004,-3.58514 -8.25201,-10.54589 -12.07704,-16.2284 z"
+       id="path61-4"
+       inkscape:label="trace_1" />
+    <path
+       style="display:inline;fill:#663054;fill-opacity:1;stroke:none;stroke-width:20.2513;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       d="m 465.37124,332.62465 c -16.50384,7.97306 20.30438,6.97378 27.27089,8.58101 26.25035,1.76409 54.98063,6.80281 79.41886,-5.40879 16.33349,-26.04998 -52.79046,-0.0381 -19.89533,-12.18597 28.40109,-5.85798 -3.27422,-21.47281 -15.05795,-9.22034 -22.40448,12.05809 -46.63179,16.3076 -71.73647,18.23409 z"
+       id="path62-0"
+       inkscape:label="fin" />
+    <g
+       id="g64-6"
+       inkscape:label="eyeball"
+       style="display:inline"
+       transform="matrix(0.81005154,0,0,0.81005154,34.000793,3.961437)">
+      <ellipse
+         style="fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+         id="path63-5"
+         cx="407.11057"
+         cy="314.9346"
+         rx="13.692808"
+         ry="14.36075" />
+      <circle
+         style="fill:#000080;fill-opacity:1;stroke:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+         id="path64-3"
+         cx="406.44263"
+         cy="314.9346"
+         r="8.3492737"
+         inkscape:label="iris" />
+    </g>
+    <path
+       style="fill:#000000;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       d="M 0,1.2987974 1020.8547,575.36723"
+       id="path2" />
+  </g>
+</svg>

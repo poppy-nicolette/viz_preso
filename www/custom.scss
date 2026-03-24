@@ -1,0 +1,52 @@
+/*-- scss:defaults --*/
+$theme-darkblue: #01364C;
+$theme-blue: #99D9DD;
+$theme-white: #F7F8F9;
+$theme-yellow: #F4BA02;
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
+
+$body-bg: $theme-darkblue;
+$body-color: $theme-white;
+$link-color: $theme-blue;
+$presentation-heading-color: lighten($theme-blue, 15%);
+
+$font-family-sans-serif: "Atkinson Hyperlegible Next", sans-serif;
+$presentation-heading-font: "Atkinson Hyperlegible Next", sans-serif;
+
+/*-- scss:rules --*/
+
+.blue {
+    color: $theme-blue;
+    font-weight: bold;
+  }
+
+.italic {
+  font-style: italic;
+  font-size: smaller;
+}
+  
+  .yellow {
+    color: $theme-yellow;
+    font-weight: bold;
+  }
+
+  .magenta {
+    color: #FF00FF;
+    font-weight: bolder;
+  }
+
+  .h2 {
+    overflow-y: true;
+  }
+
+  .biblio{
+    color: $theme-white;
+    font-size: small;
+
+  }
+
+  .small{
+    font-size: small;
+
+  }
